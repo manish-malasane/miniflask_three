@@ -1,7 +1,9 @@
+import pymysql
 from dal.db_conn_helper import conn_toml
-from typing import List
+from typing import List, Union
 import pydantic
 from pymysql import IntegrityError
+import requests
 
 
 def insert_resource(
@@ -37,6 +39,30 @@ def insert_resource(
         except IntegrityError as fp:
             print(f"[ ERROR ] This data is already stored in database -> {fp}")
     return result
+
+
+def fetch_resource(resource):
+    home_url = "https://swapi.dev"
+    relative_url = f"/api/{resource}"
+    absolute_url = home_url + relative_url
+    response = requests.get(absolute_url)
+    data = response.json()
+    return data
+
+
+def __delete_resource(
+    table_name: str, primary_key: str, primary_value: Union[int, str]
+):
+    try:
+        with conn_toml() as conn:
+            cursor = conn.cursor()
+            sql_magic = f"DELETE FROM {table_name} WHERE {primary_key}={primary_value}"
+            data = cursor.execute(sql_magic)
+            conn.commit()
+
+        return data
+    except pymysql.Error as ex:
+        return f" [ ERROR DETAILS ] :-> {ex} "
 
 
 if __name__ == "__main__":
