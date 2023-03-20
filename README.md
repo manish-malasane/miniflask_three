@@ -1,4 +1,6 @@
 ### project structure
+
+
 miniflask_v3   (main-project-root)
 ├── NOTES
 ├── README.md
