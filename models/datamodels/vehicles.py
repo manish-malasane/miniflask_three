@@ -22,8 +22,25 @@ class Vehicles(Base):
     consumables: str
     vehicle_class: str
 
-    pilots: Optional[List[str]]
-    films: Optional[List[str]]
+    # pilots: Optional[List[str]]
+    # films: Optional[List[str]]
+
+
+class PatchVehicle(Base):
+    name: Optional[str]
+    model: Optional[str]
+    manufacturer: Optional[str]
+    cost_in_credits: Optional[str]
+    length: Optional[str]
+    max_atmosphering_speed: Optional[str]
+    crew: Optional[str]
+    passengers: Optional[str]
+    cargo_capacity: Optional[str]
+    consumables: Optional[str]
+    vehicle_class: Optional[str]
+
+    # pilots: Optional[List[str]]
+    # films: Optional[List[str]]
 
 
 if __name__ == "__main__":

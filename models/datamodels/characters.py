@@ -26,6 +26,23 @@ class Characters(Base):
     vehicles: Optional[List[str]]
 
 
+class PatchCharacter(Base):
+    name: Optional[str]
+    height:  Optional[str]
+    mass:  Optional[str]
+    hair_color:  Optional[str]
+    skin_color:  Optional[str]
+    eye_color:  Optional[str]
+    birth_year:  Optional[str]
+    gender:  Optional[str]
+    homeworld:  Optional[str]
+
+    films: Optional[List[str]]
+    species: Optional[List[str]]
+    starships: Optional[List[str]]
+    vehicles: Optional[List[str]]
+
+
 if __name__ == "__main__":
     data = {
         "name": "Luke Skywalker",

@@ -21,8 +21,24 @@ class Species(Base):
     homeworld: Union[str | None]
     language: str
 
-    people: Optional[List[str]]
-    films: Optional[List[str]]
+    # people: Optional[List[str]]
+    # films: Optional[List[str]]
+
+
+class PatchSpecie(Base):
+    name: Optional[str]
+    classification: Optional[str]
+    designation: Optional[str]
+    average_height: Optional[str]
+    skin_colors: Optional[str]
+    hair_colors: Optional[str]
+    eye_colors: Optional[str]
+    average_lifespan: Optional[str]
+    homeworld: Union[str | None]
+    language: Optional[str]
+
+    # people: Optional[List[str]]
+    # films: Optional[List[str]]
 
 
 if __name__ == "__main__":

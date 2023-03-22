@@ -24,8 +24,27 @@ class Starships(Base):
     MGLT: str
     starship_class: str
 
-    pilots: Optional[List[str]]
-    films: Optional[List[str]]
+    # pilots: Optional[List[str]]
+    # films: Optional[List[str]]
+
+
+class PatchStarship(Base):
+    name: Optional[str]
+    model: Optional[str]
+    manufacturer: Optional[str]
+    cost_in_credits: Optional[str]
+    length: Optional[str]
+    max_atmosphering_speed: Optional[str]
+    crew: Optional[str]
+    passengers: Optional[str]
+    cargo_capacity: Optional[str]
+    consumables: Optional[str]
+    hyperdrive_rating: Optional[str]
+    MGLT: Optional[str]
+    starship_class: Optional[str]
+
+    # pilots: Optional[List[str]]
+    # films: Optional[List[str]]
 
 
 if __name__ == "__main__":

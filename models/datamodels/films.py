@@ -24,6 +24,21 @@ class Films(Base):
     vehicles: Optional[List[str]]
 
 
+class PatchFilm(Base):
+    title: Optional[str]
+    episode_id: Optional[str]
+    opening_crawl: Optional[str]
+    director: Optional[str]
+    producer: Optional[str]
+    release_date: Optional[str]
+
+    characters: Optional[List[str]]
+    planets: Optional[List[str]]
+    starships: Optional[List[str]]
+    species: Optional[List[str]]
+    vehicles: Optional[List[str]]
+
+
 if __name__ == "__main__":
     data = {
         "title": "A New Hope",

@@ -20,8 +20,23 @@ class Planets(Base):
     surface_water: str
     population: str
 
-    residents: Optional[List[str]]
-    films: Optional[List[str]]
+    # residents: Optional[List[str]]
+    # films: Optional[List[str]]
+
+
+class PatchPlanet(Base):
+    name: Optional[str]
+    rotation_period: Optional[str]
+    orbital_period: Optional[str]
+    diameter: Optional[str]
+    climate: Optional[str]
+    gravity: Optional[str]
+    terrain: Optional[str]
+    surface_water: Optional[str]
+    population: Optional[str]
+
+    # residents: Optional[List[str]]
+    # films: Optional[List[str]]
 
 
 if __name__ == "__main__":
