@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from typing import Optional, Union
 
 
-class PostResponse(BaseModel):
+class ResponseValidation(BaseModel):
     Record_Count: Union[str, int]
     Name: str
     Message: Optional[str]
