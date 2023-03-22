@@ -1,5 +1,5 @@
 import logging
-
+from flask import abort
 import pymysql
 from dal.db_conn_helper import conn_toml
 from typing import List, Union, Dict
@@ -44,20 +44,16 @@ def insert_resource(
     return result
 
 
-def get_url(resource, resource_id) -> str:
-    home_url = "https://swapi.dev"
-    relative_url = f"/api/{resource}/{resource_id}"
-    absolute_url = home_url + relative_url
-    return absolute_url
-
-
 def fetch_resource(resource):
     home_url = "https://swapi.dev"
     relative_url = f"/api/{resource}"
     absolute_url = home_url + relative_url
     response = requests.get(absolute_url)
-    data = response.json()
-    return data
+    if response.status_code != 200:
+        return abort(404)
+    else:
+        data = response.json()
+        return data
 
 
 def __delete_resource(
@@ -137,7 +133,7 @@ def get_url_ids(urls) -> str:
     ids = []
 
     for url in urls:
-        ids.append(url.split("/")[-1])
+        ids.append(url.split("/")[-2])
 
     return " ".join(ids)
 
