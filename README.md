@@ -52,3 +52,44 @@ create
 Retrieve (Read)
 Update
 Delete
+
+
+#### Project Structure
+- flask_three  (project root dir)
+    - api_1    (sub app)
+      - __init__.py (this file tells python that this folder is a python package)
+      - http_requests (http end-points)
+        - __init__.py  (this file tells python that this folder is a python package)
+        - characters_.py   |
+        - films_.py        |
+        - planets_.py      | ----  (all the http end points GET, POST, ..)
+        - species_py       |
+        - starships_.py    |
+        - vehicles_.py     |
+    - starwars_app.py   (all the registered blueprints of app_1)
+    - dal     (data access layer package)
+      - __init__.py 
+      - settings (package related to db configs)
+        - __init__.py
+        - secrets.toml
+      - dml.py (data-manipulation code)
+      - db_conn_helper.py (helps to connect with db)
+    - models (pydantic models)
+      - __init__.py
+      - basemodel.py    (some common fields)
+      - datamodels      (pydantic models)
+        - __init__.py
+        - characters.py
+        - films.py
+        - planets.py
+        - species.py
+        - starships.py
+        - vehicles.py
+    - response validation
+      - __init__.py
+      - response.py (response data validation)
+    - .gitignore  (files to ignore)
+    - README.md (Project Documentation)
+    - requirements.txt  (keep dependencies)
+    - requirements.dev.txt (to keep development dependencies)
+    - venv (virtual env [isolation])
