@@ -112,7 +112,7 @@ def put_specie_data():
     except pydantic.error_wrappers.ValidationError as ex:
         logging.error(f"{abort(400)} - {ex}")
 
-    url = specie_data.url.split("/")[-2]
+    url = specie_data.url
 
     result = upsert_species(specie_data, url)
 
@@ -136,7 +136,7 @@ def patch_specie_data():
     except pydantic.error_wrappers.ValidationError as ex:
         return abort(400) - ex
 
-    url = specie_data.url.split("/")[-2]
+    url = specie_data.url
     result = upsert_species(specie_data, url)
 
     if result:

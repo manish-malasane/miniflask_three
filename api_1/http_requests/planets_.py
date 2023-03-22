@@ -116,7 +116,7 @@ def put_planet_data():
     except pydantic.error_wrappers.ValidationError as ex:
         logging.error(f"{abort(400)} - {ex}")
 
-    url = planet_data.url.split("/")[-2]
+    url = planet_data.url
 
     result = upsert_planets(planet_data, url)
 
@@ -140,7 +140,7 @@ def patch_planet_data():
     except pydantic.error_wrappers.ValidationError as ex:
         return abort(400) - ex
 
-    url = planet_data.url.split("/")[-2]
+    url = planet_data.url
     result = upsert_planets(planet_data, url)
 
     if result:

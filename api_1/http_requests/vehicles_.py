@@ -115,7 +115,7 @@ def put_vehicle_data():
     except pydantic.error_wrappers.ValidationError as ex:
         logging.error(f"{abort(400)} - {ex}")
 
-    url = vehicle_data.url.split("/")[-2]
+    url = vehicle_data.url
 
     result = upsert_vehicles(vehicle_data, url)
 
@@ -139,7 +139,7 @@ def patch_vehicle_data():
     except pydantic.error_wrappers.ValidationError as ex:
         return abort(400) - ex
 
-    url = vehicle_data.url.split("/")[-2]
+    url = vehicle_data.url
     result = upsert_vehicles(vehicle_data, url)
 
     if result:

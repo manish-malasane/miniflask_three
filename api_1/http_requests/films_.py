@@ -100,7 +100,7 @@ def put_film_data():
     except pydantic.error_wrappers.ValidationError as ex:
         logging.error(f"{abort(400)} - {ex}")
 
-    url = film_data.url.split("/")[-2]
+    url = film_data.url
 
     result = upsert_films(film_data, url)
 
@@ -124,7 +124,7 @@ def patch_film_data():
     except pydantic.error_wrappers.ValidationError as ex:
         return f"{abort(400)} - {ex}"
 
-    url = film_data.url.split("/")[-2]
+    url = film_data.url
     result = upsert_films(film_data, url)
 
     if result:
